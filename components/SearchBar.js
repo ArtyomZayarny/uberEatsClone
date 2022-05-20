@@ -10,13 +10,13 @@ export default function SearchBar() {
       <GooglePlacesAutocomplete
         styles={{
           textInput: {
-            backgroundColor: theme.grey,
+            backgroundColor: theme.gray,
             borderRadius: 20,
             fontWeight: '700',
             marginTop: 7,
           },
           textInputContainer: {
-            backgroundColor: theme.grey,
+            backgroundColor: theme.gray,
             borderRadius: 50,
             flexDirection: 'row',
             alignItems: 'center',
