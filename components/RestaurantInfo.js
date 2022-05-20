@@ -2,7 +2,7 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import { theme } from '../theme';
 
-export default function RestaurantInfo() {
+export default function RestaurantInfo({ name, rating }) {
   return (
     <View
       style={{
@@ -13,7 +13,7 @@ export default function RestaurantInfo() {
       }}
     >
       <View>
-        <Text style={{ fontSize: 15, fontWeight: 'bold' }}>Chicken bbq</Text>
+        <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{name}</Text>
         <Text style={{ fontSize: 13, color: theme.black, fontStyle: 'italic' }}>
           30-45 - min
         </Text>
@@ -28,7 +28,7 @@ export default function RestaurantInfo() {
           borderRadius: 50,
         }}
       >
-        <Text>4.5</Text>
+        <Text>{rating}</Text>
       </View>
     </View>
   );

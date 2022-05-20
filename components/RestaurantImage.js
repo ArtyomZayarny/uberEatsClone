@@ -3,12 +3,12 @@ import { theme } from '../theme';
 import { Image, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function RestaurantImage() {
+export default function RestaurantImage({ image }) {
   return (
     <>
       <Image
         source={{
-          uri: 'https://arlingtonva.s3.amazonaws.com/wp-content/uploads/sites/25/2013/12/restaurant.jpeg',
+          uri: image,
         }}
         style={{ width: '100%', height: 180 }}
       />
