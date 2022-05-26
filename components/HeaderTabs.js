@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { theme } from '../theme';
 
-export default function HeaderTabs() {
-  const [activeTab, setActiveTab] = React.useState('Delivery');
+export default function HeaderTabs({ activeTab, setActiveTab }) {
   return (
     <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
       <HeaderButton
@@ -23,25 +22,24 @@ export default function HeaderTabs() {
     </View>
   );
 }
-const HeaderButton = (props) => (
+const HeaderButton = ({ activeTab, text, setActiveTab }) => (
   <TouchableOpacity
     style={{
       paddingVertical: 6,
       paddingHorizontal: 16,
       borderRadius: 30,
-      backgroundColor:
-        props.activeTab === props.text ? theme.black : theme.white,
+      backgroundColor: activeTab === text ? theme.black : theme.white,
     }}
-    onPress={() => props.setActiveTab(props.text)}
+    onPress={() => setActiveTab(text)}
   >
     <Text
       style={{
-        color: props.activeTab === props.text ? theme.white : theme.black,
+        color: activeTab === text ? theme.white : theme.black,
         fontSize: 15,
         fontWeight: '900',
       }}
     >
-      {props.text}
+      {text}
     </Text>
   </TouchableOpacity>
 );
