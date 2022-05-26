@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from '../theme';
+import { theme } from '../../theme';
 import { Image, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
