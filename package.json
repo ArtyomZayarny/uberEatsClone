@@ -46,6 +46,9 @@
     "web": "expo start --web",
     "prepare": "husky install"
   },
+  "resolutions": {
+    "@types/react": "17.0.43"
+  },
   "version": "1.0.0",
   "private": true,
   "name": "ubereatsclone"
