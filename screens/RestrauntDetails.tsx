@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import React from 'react';
 import { Divider } from 'react-native-elements';
-import About from '../components/restaurantDetails/About';
+import { About } from '../components/restaurantDetails/About';
 import MenuItems from '../components/restaurantDetails/MenuItems';
 
 export const RestrauntDetails: React.FC = () => (
