@@ -1,6 +1,6 @@
 import React from 'react';
-import { RestrauntDetails } from './screens/RestrauntDetails';
+import { RootNavigation } from './navigation';
 
 export default function App() {
-  return <RestrauntDetails />;
+  return <RootNavigation />;
 }

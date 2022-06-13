@@ -4,7 +4,7 @@ import { Divider } from 'react-native-elements';
 import { About } from '../components/restaurantDetails/About';
 import MenuItems from '../components/restaurantDetails/MenuItems';
 
-export const RestrauntDetails: React.FC = () => (
+export const RestaurantDetails: React.FC = () => (
   <View>
     <About />
     <Divider
