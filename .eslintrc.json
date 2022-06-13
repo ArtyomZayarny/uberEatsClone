@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["plugin:react/recommended", "prettier", "airbnb", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -13,7 +13,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -24,7 +24,6 @@
   "rules": {
     "object-curly-newline": "off",
     "react/prop-types": "off",
-    "arrow-parens": ["error", "as-needed"],
     "react/function-component-definition": [
       "error",
       {
@@ -52,6 +51,7 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "function-paren-newline": ["error", "multiline-arguments"]
   }
 }

@@ -8,10 +8,9 @@ import RestaurantItems from '../components/Home/RestaurantItems';
 import SearchBar from '../components/Home/SearchBar';
 import { theme } from '../theme';
 
-const YELP_API_KEY =
-  'rMa0Nu05h5SLg6PxdDlunS2YcapfrhBQh7OTJiVzaJ-K_LwaLwJZePzKm6ZLd5MGI4tMqQTgswRwSo08BvqO_6ygFr0mgiTWS3VCnFPuHJwFia924hwacRu7RwWIYnYx';
+const YELP_API_KEY = 'rMa0Nu05h5SLg6PxdDlunS2YcapfrhBQh7OTJiVzaJ-K_LwaLwJZePzKm6ZLd5MGI4tMqQTgswRwSo08BvqO_6ygFr0mgiTWS3VCnFPuHJwFia924hwacRu7RwWIYnYx';
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState([]);
   const [location, setLocation] = useState('SanDiego');
   const [activeTab, setActiveTab] = useState('Delivery');
@@ -25,13 +24,9 @@ export default function Home() {
     };
     return fetch(yelpUrl, apiOptions)
       .then((res) => res.json())
-      .then((json) =>
-        setRestaurantData(
-          json.businesses.filter((business) =>
-            business.transactions.includes(activeTab.toLowerCase())
-          )
-        )
-      );
+      .then((json) => {
+        setRestaurantData(json.businesses.filter((business) => business.transactions.includes(activeTab.toLowerCase())));
+      });
   };
   useEffect(() => {
     getRestaurantsFromYelp();
@@ -45,7 +40,7 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItems restaurantData={restaurantData} />
+        <RestaurantItems restaurantData={restaurantData} navigation={navigation} />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs />

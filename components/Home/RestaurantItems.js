@@ -4,22 +4,36 @@ import RestaurantImage from './RestaurantImage';
 import RestaurantInfo from './RestaurantInfo';
 import { theme } from '../../theme';
 
-export default function RestaurantItems({ restaurantData }) {
+export default function RestaurantItems({ navigation, restaurantData }) {
   return (
-    <TouchableOpacity activeOpacity={1} style={{ marginBottom: 30 }}>
-      {/* Loop restaurant items */}
+    <>
       {restaurantData.map((restaurant) => (
-        <View
+        <TouchableOpacity
           key={restaurant.id}
-          style={{
-            padding: 15,
-            backgroundColor: theme.white,
+          onPress={() => {
+            navigation.navigate('RestaurantDetails', {
+              name: restaurant.name,
+              image: restaurant.image_url,
+              price: restaurant.price,
+              reviews: restaurant.review_count,
+              rating: restaurant.rating,
+              categories: restaurant.categories,
+            });
           }}
+          activeOpacity={1}
+          style={{ marginBottom: 30 }}
         >
-          <RestaurantImage image={restaurant.image_url} />
-          <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
-        </View>
+          <View
+            style={{
+              padding: 15,
+              backgroundColor: theme.white,
+            }}
+          >
+            <RestaurantImage image={restaurant.image_url} />
+            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+          </View>
+        </TouchableOpacity>
       ))}
-    </TouchableOpacity>
+    </>
   );
 }

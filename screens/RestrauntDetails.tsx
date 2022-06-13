@@ -2,11 +2,11 @@ import { View } from 'react-native';
 import React from 'react';
 import { Divider } from 'react-native-elements';
 import { About } from '../components/restaurantDetails/About';
-import MenuItems from '../components/restaurantDetails/MenuItems';
+import { MenuItems } from '../components/restaurantDetails/MenuItems';
 
-export const RestaurantDetails: React.FC = () => (
+export const RestaurantDetails: React.FC = ({ route }) => (
   <View>
-    <About />
+    <About route={route} />
     <Divider
       width={1.8}
       style={{
