@@ -2,6 +2,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import React from 'react';
 import { Divider } from 'react-native-elements';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { useDispatch } from 'react-redux';
 import { FoodCard } from './food-card';
 
 const foods = [
@@ -63,22 +64,31 @@ const styles = StyleSheet.create({
   },
 });
 
-export const MenuItems: React.FC = () => (
-  <ScrollView showsVerticalScrollIndicator={false}>
-    {foods.map((food) => (
-      <View key={food.id}>
-        <View style={styles.menuItemStyle}>
-          <BouncyCheckbox
-            fillColor="green"
-            iconStyle={{
-              borderColor: 'lightgray',
-              borderRadius: 0,
-            }}
-          />
-          <FoodCard food={food} />
+export const MenuItems: React.FC = ({ restaurantName }) => {
+  const dispatch = useDispatch();
+  const selectItems = (item, checkboxValue) =>
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: { ...item, restaurantName, checkboxValue },
+    });
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      {foods.map((food) => (
+        <View key={food.id}>
+          <View style={styles.menuItemStyle}>
+            <BouncyCheckbox
+              fillColor="green"
+              iconStyle={{
+                borderColor: 'lightgray',
+                borderRadius: 0,
+              }}
+              onPress={(checkboxValue) => selectItems(food, checkboxValue)}
+            />
+            <FoodCard food={food} />
+          </View>
+          <Divider width={0.5} orientation="vertical" />
         </View>
-        <Divider width={0.5} orientation="vertical" />
-      </View>
-    ))}
-  </ScrollView>
-);
+      ))}
+    </ScrollView>
+  );
+};

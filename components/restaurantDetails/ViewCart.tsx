@@ -1,9 +1,17 @@
 import { View, Text } from 'react-native';
 import React from 'react';
+// import { useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { theme } from '../../theme';
 
 export const ViewCart: React.FC = () => {
+  // const items = useSelector((state) => state.cartReducer.selectedItems.items);
+  // const total = items.map((item) => Number(item.price.replace('$', ''))).reduce((prev, curr) => prev + curr, 0);
+  // const totalUSD = total.toLocaleString('en', {
+  //   style: 'currency',
+  //   currency: 'USD',
+  // });
+
   return (
     <View
       style={{

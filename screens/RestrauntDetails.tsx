@@ -19,7 +19,7 @@ export const RestaurantDetails: React.FC = ({ route, navigation }) => (
         marginVertical: 20,
       }}
     />
-    <MenuItems />
+    <MenuItems restaurantName={route.params.name} />
     <ViewCart navigation={navigation} restaurantName={route.params.name} />
   </View>
 );
