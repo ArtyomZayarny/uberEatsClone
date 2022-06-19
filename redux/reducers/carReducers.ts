@@ -5,22 +5,23 @@ const initialState = {
   },
 };
 
-export const cartReducer = (action, state = initialState) => {
-  switch (action.type) {
+export const cartReducer = (state = initialState, { type, payload } = {}) => {
+  switch (type) {
     case 'ADD_TO_CART': {
       const newState = { ...state };
 
-      if (action.payload.checkboxValue) {
+      if (payload.checkboxValue) {
         newState.selectedItems = {
-          items: [...newState.selectedItems.items, action.payload],
-          restaurantName: action.payload.restaurantName,
+          items: [...newState.selectedItems.items, payload],
+          restaurantName: payload.restaurantName,
         };
       } else {
-        newState.selecteItems = {
-          items: [...newState.selectedItems.items.filter((item) => item.title !== action.payload.title)],
-          restaurantName: action.payload.restaurantName,
+        newState.selectedItems = {
+          items: [...newState.selectedItems.items.filter((item) => item.title !== payload.title)],
+          restaurantName: payload.restaurantName,
         };
       }
+
       return newState;
     }
     default:
