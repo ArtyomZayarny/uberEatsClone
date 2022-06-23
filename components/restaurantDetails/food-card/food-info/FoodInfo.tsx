@@ -13,7 +13,7 @@ export const FoodInfo: React.FC<FoodProps> = ({ food }) => {
   return (
     <View
       style={{
-        width: 180,
+        width: 200,
         justifyContent: 'space-evently',
       }}
     >

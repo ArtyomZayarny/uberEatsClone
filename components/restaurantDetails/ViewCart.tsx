@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-export const ViewCart: React.FC = ({ total }) => {
+export const ViewCart: React.FC = ({ total, navigation }) => {
   const { restaurantName, items } = useSelector((state) => state.cart.selectedItems);
   const [modalVisible, setModalVisible] = useState(false);
   const addOrderToFireBase = () => {
@@ -46,6 +46,7 @@ export const ViewCart: React.FC = ({ total }) => {
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setModalVisible(false);
+    navigation.navigate('OrderCompleted');
   };
   const checkoutModalContent = () => {
     return (
