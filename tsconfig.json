@@ -12,11 +12,6 @@
     "target": "esnext",
     "noUnusedLocals": true
   },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.ts", "jest.config.js"],
   "extends": "expo/tsconfig.base"
 }
